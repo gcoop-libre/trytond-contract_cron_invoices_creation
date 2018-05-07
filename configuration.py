@@ -1,4 +1,4 @@
-# This file is part of the contract_vdb module for Tryton.
+# This file is part of the contract_cron_invoices_creation module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from trytond.model import fields
@@ -9,5 +9,4 @@ __all__ = ['Configuration']
 class Configuration:
     __metaclass__ = PoolMeta
     __name__ = 'contract.configuration'
-    contract_use_cron = fields.Property(
-        fields.Boolean('Use cron to create invoices'))
+    contract_use_cron = fields.Boolean('Use Cron to create invoices')

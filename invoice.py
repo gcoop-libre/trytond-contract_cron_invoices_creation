@@ -1,4 +1,4 @@
-# This file is part of the contract_vdb module for Tryton.
+# This file is part of the contract_cron_invoices_creation module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 
@@ -16,7 +16,7 @@ class CreateInvoices:
 
     def do_create_invoices(self, action):
         pool = Pool()
-        Configuration = pool.get('Configuration')
+        Configuration = pool.get('contract.configuration')
         config = Configuration(1)
         if config.contract_use_cron:
             CreateInvoicesCron = pool.get('contract.create_invoices_cron')
@@ -25,8 +25,6 @@ class CreateInvoices:
             create_invoices_cron_data.save()
         else:
             super(CreateInvoices, self).do_create_invoices(action)
-
-
 
 
 class CreateInvoicesCron(ModelSingleton, ModelSQL, ModelView):
